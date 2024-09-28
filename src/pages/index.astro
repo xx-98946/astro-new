@@ -1,0 +1,22 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import Button from "@/components/Button.astro";
+import Link from "@/components/Link.astro";
+---
+
+<Layout title="Astro 首页">
+  <main class="grid grid-cols-4 gap-4">
+    <div>
+      <Button class="btn">按钮</Button>
+      <Link href="/api">/api</Link>
+    </div>
+  </main>
+</Layout>
+
+<script>
+  // 事件委托？？
+  const btn = document.getElementById("btn");
+  btn?.addEventListener("click", () => {
+    alert("12");
+  });
+</script>

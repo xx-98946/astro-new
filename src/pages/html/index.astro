@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <input id="input1" placeholder="输入提示1" />
+    <br />
+    <input id="input2" placeholder="输入提示2" />
+    <br />
+    <input id="input3" placeholder="输入提示3" />
+    <br />
+    <button id="btn">手动修改输入</button>
+
+    <script>
+      const input1 = document.getElementById("input1") as HTMLInputElement;
+      const input2 = document.getElementById("input2") as HTMLInputElement;
+      const input3 = document.getElementById("input3") as HTMLInputElement;
+      const btn = document.getElementById("btn") as HTMLButtonElement;
+
+      input1.addEventListener("input", (e) => {
+        const target = e.target as HTMLInputElement;
+        input2.value = target.value;
+        input3.value = target.value;
+      });
+
+      input2.addEventListener("input", (e) => {
+        const target = e.target as HTMLInputElement;
+        input1.value = target.value;
+        input3.value = target.value;
+      });
+
+      input3.addEventListener("input", (e) => {
+        const target = e.target as HTMLInputElement;
+        input1.value = target.value;
+        input2.value = target.value;
+      });
+
+      input1.value = "默认内容";
+      input2.value = "默认内容";
+      input3.value = "默认内容";
+
+      btn.addEventListener("click", (e) => {
+        const r = Math.random().toString();
+        input1.value = r;
+        input2.value = r;
+        input3.value = r;
+      });
+    </script>
+  </body>
+</html>

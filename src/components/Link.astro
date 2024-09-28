@@ -1,0 +1,13 @@
+---
+import { twMerge } from "tailwind-merge";
+interface Props extends astroHTML.JSX.AnchorHTMLAttributes {}
+
+const base_class = twMerge([
+  "text-blue-500",
+  "hover:text-purple-500"
+]);
+const { class: comp_class, ...rest } = Astro.props;
+const computed_class = twMerge(base_class, comp_class);
+---
+
+<a {...rest} class={computed_class}><slot /></a>

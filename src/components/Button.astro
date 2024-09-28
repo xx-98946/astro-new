@@ -1,0 +1,15 @@
+---
+import { twMerge } from "tailwind-merge";
+interface Props extends astroHTML.JSX.ButtonHTMLAttributes {}
+
+const base_class = twMerge([
+  "border m-2 p-2 px-6 rounded-md shadow-md inline-flex cursor-pointer justify-center text-center", // 基本样式
+  "disabled:text-blue-300 disabled:border-blue-200 disabled:cursor-not-allowed", // 禁用时样式
+  "enabled:hover:text-white enabled:hover:bg-blue-500 enabled:hover:border-blue-500", // 鼠标移入时样式
+  "enabled:active:text-white enabled:active:bg-blue-600 enabled:active:border-blue-600", // 激活时的样式
+]);
+const { class: comp_class, ...rest } = Astro.props;
+const computed_class = twMerge(base_class, comp_class);
+---
+
+<button {...rest} class={computed_class}><slot /></button>
